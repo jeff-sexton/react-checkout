@@ -1,7 +1,15 @@
 import React from "react";
 
-const NavBar = () => {
-  return <nav>NavBar</nav>;
+import { PRODUCTS, CART } from "../App";
+
+const NavBar = ({ setVisualMode }) => {
+  return (
+    <nav>
+      <button onClick={() => setVisualMode(PRODUCTS)}>Products</button>
+      NavBar
+      <button onClick={() => setVisualMode(CART)}>Cart</button>
+    </nav>
+  );
 };
 
 export default NavBar;
