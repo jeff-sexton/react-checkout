@@ -1,4 +1,4 @@
-# Take Home Test for The Perk
+# Take Home Test
 
 Demonstration React Checkout Flow application
 
