@@ -1,6 +1,34 @@
 import React from "react";
 
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+  },
+  media: {
+    height: 0,
+    paddingTop: "56.25%", // 16:9
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
+
 const Product = ({ product: { id, title, thumbnailUrl, priceCents } }) => {
+  const classes = useStyles();
+
   const addToCart = () => {
     console.log(id);
     const cart = localStorage.getItem("cart")
@@ -11,19 +39,38 @@ const Product = ({ product: { id, title, thumbnailUrl, priceCents } }) => {
       cart[id].quantity += 1;
       cart[id].total = cart[id].quantity * priceCents;
     } else {
-      cart[id] = { id: id, quantity: 1, itemPrice: priceCents, total: priceCents };
+      cart[id] = {
+        id: id,
+        quantity: 1,
+        itemPrice: priceCents,
+        total: priceCents,
+      };
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   return (
-    <div>
-      <img src={thumbnailUrl} alt="Product Image" />
-      <p>{title}</p>
-      <p>${priceCents / 100}</p>
-      <button onClick={addToCart}>Add to Cart</button>
-    </div>
+    <Card className={classes.root} variant="outlined">
+      <CardMedia
+        className={classes.media}
+        image={thumbnailUrl}
+        title="Product"
+      />
+      <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {title}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          ${priceCents / 100}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <IconButton onClick={addToCart} color="inherit">
+          <AddShoppingCartIcon />
+        </IconButton>
+      </CardActions>
+    </Card>
   );
 };
 
