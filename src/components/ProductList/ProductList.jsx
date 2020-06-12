@@ -1,16 +1,30 @@
 import React from "react";
 import Product from "./Product";
 
-const ProductList = ({products}) => {
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
-  const productComponents = products.map(product => <Product key={product.id} product={product}/>)
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
 
+const ProductList = ({ products }) => {
+  const classes = useStyles();
 
-  return (<section>
+  const productComponents = products.map((product) => (
+    <Product key={product.id} product={product} />
+  ));
 
-    Product List
-    {productComponents}
-    </section>);
+  return (
+    <section>
+      <Grid container className={classes.root} spacing={2}>
+        {productComponents}
+      </Grid>
+    </section>
+  );
 };
 
 export default ProductList;

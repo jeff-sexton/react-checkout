@@ -10,9 +10,12 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
+import Grid from "@material-ui/core/Grid";
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    minHeight: 275,
   },
   media: {
     height: 0,
@@ -23,6 +26,10 @@ const useStyles = makeStyles({
   },
   pos: {
     marginBottom: 12,
+  },
+  addButton: {
+    marginLeft: 'auto',
+
   },
 });
 
@@ -51,26 +58,28 @@ const Product = ({ product: { id, title, thumbnailUrl, priceCents } }) => {
   };
 
   return (
-    <Card className={classes.root} variant="outlined">
-      <CardMedia
-        className={classes.media}
-        image={thumbnailUrl}
-        title="Product"
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {title}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          ${priceCents / 100}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <IconButton onClick={addToCart} color="inherit">
-          <AddShoppingCartIcon />
-        </IconButton>
-      </CardActions>
-    </Card>
+    <Grid item md={3} sm={6} xs={12}>
+      <Card className={classes.root} variant="outlined">
+        <CardMedia
+          className={classes.media}
+          image={thumbnailUrl}
+          title="Product"
+        />
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {title}
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary">
+            ${priceCents / 100}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <IconButton className={classes.addButton} onClick={addToCart} color="inherit">
+            <AddShoppingCartIcon />
+          </IconButton>
+        </CardActions>
+      </Card>
+    </Grid>
   );
 };
 
