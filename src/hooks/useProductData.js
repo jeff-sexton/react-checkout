@@ -31,8 +31,8 @@ const useProductData = () => {
   };
 
   // Get "product" data from api
-  useEffect(() => {
-    axios
+  const getInitialProducts = () => {
+    return axios
       .get("https://jsonplaceholder.typicode.com/photos", {
         params: {
           _limit: 20,
@@ -45,10 +45,11 @@ const useProductData = () => {
         }));
 
         dispatch({ type: SET_PRODUCT_DATA, value: products });
+        console.log('Save products to state')
       });
-  }, []);
+  };
 
-  return { state };
+  return { state, getInitialProducts };
 };
 
 export default useProductData;
