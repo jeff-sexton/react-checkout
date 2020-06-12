@@ -28,13 +28,14 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
   addButton: {
-    marginLeft: 'auto',
-
+    marginLeft: "auto",
   },
 });
 
-const Product = ({ product: { id, title, thumbnailUrl, priceCents } }) => {
+const Product = ({ product }) => {
   const classes = useStyles();
+
+  const { id, title, thumbnailUrl, priceCents } = product;
 
   const addToCart = () => {
     console.log(id);
@@ -47,7 +48,7 @@ const Product = ({ product: { id, title, thumbnailUrl, priceCents } }) => {
       cart[id].total = cart[id].quantity * priceCents;
     } else {
       cart[id] = {
-        id: id,
+        product,
         quantity: 1,
         itemPrice: priceCents,
         total: priceCents,
@@ -74,7 +75,11 @@ const Product = ({ product: { id, title, thumbnailUrl, priceCents } }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <IconButton className={classes.addButton} onClick={addToCart} color="inherit">
+          <IconButton
+            className={classes.addButton}
+            onClick={addToCart}
+            color="inherit"
+          >
             <AddShoppingCartIcon />
           </IconButton>
         </CardActions>
