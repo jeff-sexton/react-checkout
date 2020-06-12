@@ -1,8 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import './App.css';
+import "./App.css";
+import useProductData from "../hooks/useProductData";
 
 function App() {
+  const { state } = useProductData();
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +19,7 @@ function App() {
         >
           Learn React
         </a>
+        {state.products.length > 0 && state.products.length}
       </header>
     </div>
   );
