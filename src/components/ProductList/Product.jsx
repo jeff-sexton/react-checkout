@@ -50,7 +50,7 @@ const Product = ({ product }) => {
       cart[id] = {
         product,
         quantity: 1,
-        itemPrice: priceCents,
+        price: priceCents,
         total: priceCents,
       };
     }
