@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  section: {
+    minHeight: '100vh',
+  },
 }));
 
 const ProductList = ({ products }) => {
@@ -19,7 +22,7 @@ const ProductList = ({ products }) => {
   ));
 
   return (
-    <section>
+    <section className={classes.section}>
       <Grid container className={classes.root} spacing={2}>
         {productComponents}
       </Grid>
