@@ -10,7 +10,7 @@ import Cart from "./Cart";
 export const PRODUCTS = "PRODUCTS";
 export const CART = "CART";
 const LOADING = "LOADING";
-const LOAD_ERROR = 'LOAD_ERROR';
+const LOAD_ERROR = "LOAD_ERROR";
 
 function App() {
   const { state, getInitialProducts } = useProductData();
@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     getInitialProducts().then(() => {
-      console.log('show products')
+      console.log("show products");
       setVisualMode(PRODUCTS);
     });
   }, []);

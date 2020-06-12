@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     minWidth: 650,
   },
   section: {
-    minHeight: '100vh',
+    minHeight: "100vh",
   },
 });
 

@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import axios from "axios";
 
 // Action constants
@@ -45,7 +45,7 @@ const useProductData = () => {
         }));
 
         dispatch({ type: SET_PRODUCT_DATA, value: products });
-        console.log('Save products to state')
+        console.log("Save products to state");
       });
   };
 

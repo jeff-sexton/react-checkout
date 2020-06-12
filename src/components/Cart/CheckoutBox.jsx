@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CheckoutBox = ({cartContents}) => {
+const CheckoutBox = ({ cartContents }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -31,29 +31,26 @@ const CheckoutBox = ({cartContents}) => {
   };
 
   const submitPayment = () => {
-
     const submission = {
       lineItems: cartContents.items,
-      mode: 'payment',
-      successUrl: 'https://your-website.com/success',
-      cancelUrl: 'https://your-website.com/canceled',
+      mode: "payment",
+      successUrl: "https://your-website.com/success",
+      cancelUrl: "https://your-website.com/canceled",
     };
 
     console.log(submission);
-
-  }
+  };
 
   const body = (
     <div className={classes.modal}>
       <h2 id="checkout-modal-title">Checkout</h2>
       <p id="checkout-modal-description">
-        Your total comes to ${cartContents.total / 100.00}
+        Your total comes to ${cartContents.total / 100.0}
       </p>
 
       <Button onClick={submitPayment} variant="contained" color="primary">
         Submit Payment
       </Button>
-
     </div>
   );
   return (

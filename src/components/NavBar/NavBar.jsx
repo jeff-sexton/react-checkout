@@ -1,13 +1,13 @@
 import React from "react";
 
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
 
-import HomeIcon from '@material-ui/icons/Home';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import HomeIcon from "@material-ui/icons/Home";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 import { PRODUCTS, CART } from "../App";
 
@@ -29,7 +29,12 @@ const NavBar = ({ setVisualMode }) => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton onClick={() => setVisualMode(PRODUCTS)} edge="start" className={classes.menuButton} color="inherit">
+          <IconButton
+            onClick={() => setVisualMode(PRODUCTS)}
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+          >
             <HomeIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
@@ -37,7 +42,7 @@ const NavBar = ({ setVisualMode }) => {
           </Typography>
 
           <IconButton onClick={() => setVisualMode(CART)} color="inherit">
-            <ShoppingCartIcon/>
+            <ShoppingCartIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -46,9 +51,3 @@ const NavBar = ({ setVisualMode }) => {
 };
 
 export default NavBar;
-
-// <nav>
-//   <button onClick={() => setVisualMode(PRODUCTS)}>Products</button>
-//   NavBar
-//   <button onClick={() => setVisualMode(CART)}>Cart</button>
-// </nav>
