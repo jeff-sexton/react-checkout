@@ -19,7 +19,6 @@ function App() {
 
   useEffect(() => {
     getInitialProducts().then(() => {
-      console.log("show products");
       setVisualMode(PRODUCTS);
     });
   }, []);

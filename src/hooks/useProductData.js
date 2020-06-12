@@ -45,7 +45,6 @@ const useProductData = () => {
         }));
 
         dispatch({ type: SET_PRODUCT_DATA, value: products });
-        console.log("Save products to state");
       });
   };
 

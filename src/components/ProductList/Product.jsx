@@ -38,7 +38,6 @@ const Product = ({ product }) => {
   const { id, title, thumbnailUrl, priceCents } = product;
 
   const addToCart = () => {
-    console.log(id);
     const cart = localStorage.getItem("cart")
       ? JSON.parse(localStorage.getItem("cart"))
       : {};

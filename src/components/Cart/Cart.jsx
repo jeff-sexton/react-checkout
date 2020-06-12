@@ -43,8 +43,6 @@ const Cart = () => {
     }
 
     setCartContents({ items: cartArray, total });
-
-    console.log(cart);
   }, []);
 
   const cartRows = cartContents.items.map((item) => (
